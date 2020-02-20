@@ -1,0 +1,101 @@
+console.log("dd")
+setTimeout(function(){
+    console.log("settimee")
+},3000)
+console.log("hiii")
+
+
+Basic JavaScript
+NPM
+Basic NodeJS(in built)(Os,file,http)
+NodeJS(full Stack App) (Node-EJS-Mongo-Express)
+MongoDb Basic
+Api with NodeJS(Rest)
+DashBoard(Crud)
+Third Party Api 
+Redis
+OO_NodeJs
+Login/Logout(JWT)
+Oauth(with github)
+GraphQl API
+ChatApp
+Email With Node
+NodeJs with postgres
+------
+Testing
+----
+Production
+Nginx
+Docker
+----------
+Github
+
+
+----------------
+JSON
+
+{
+    "name":"John",
+    "class":1
+}
+
+package.JSON
+> starting point
+> Mange depencency
+> Description
+> Version
+
+
+/*******
+Step to Create Package.JSON
+*******/
+**Node js must be installed
+> Navigate to the folder where you want to create package.json using terminal/cmd
+> npm init
+> Answer all question
+> Type 'yes'
+
+
+
+
+/***********
+Local depencency/packages/Node_modules
+>>>>Use inside same folder
+>>>>Install for particular folder only
+
+Global depencency/packages/Node_modules
+>>>>>Install inside the system
+>>>>>Can be use for any application
+> Setup
+> Create
+> Run
+> This is only need developer
+> No Global depencency go in Production
+***********/
+
+
+/*******
+Step to Install local depencency
+*******/
+
+> Navigate to the folder where you want to install using terminal/cmd
+> npm install <package name>/npm i <package name> /npm install <package name> --save /npm install <package name> --save-dev
+
+
+/*******
+Step to Install Global depencency
+*******/
+###Win
+
+> open cmd as admin
+> npm i -g @aakashdeveloper/create-node-app
+
+
+##Mac
+> open your terminal
+> sudo npm i -g @aakashdeveloper/create-node-app
+
+> go to folder
+> generate
+> select node-app
+> application name
