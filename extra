@@ -100,7 +100,14 @@ Step to Install Global depencency
 > select node-app
 > application name
 
+/**************
+Running forever
+**************/
+npm i -g nodemon
+
+
 
 ////
-Server with Express
+Express Router
+EJS
 ////
