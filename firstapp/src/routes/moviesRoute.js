@@ -25,18 +25,25 @@ var movies =[
         "type": "Adventure Animation Family",
         "rate": 5,
         "imageUrl": "https://image.ibb.co/dQwWSx/coco.jpg"
-      },
+      }
 ]
 
-moviesRouter.route('/')
-  .get(function(req,res){
-    //res.send(movies)
-    res.render('movies',{title:'Movies Page'})
-});
+function router(menu){
+  moviesRouter.route('/')
+    .get(function(req,res){
+      //res.send(movies)
+      res.render('movies',{title:'Movies Page',navigation:menu,movies:movies})
+  });
 
-moviesRouter.route('/details')
-  .get(function(req,res){
-    res.send('Details of movies')
-});
+  moviesRouter.route('/details')
+    .get(function(req,res){
+      res.send('Details of movies')
+  });
 
-module.exports = moviesRouter;
+  return moviesRouter
+
+}
+
+
+module.exports = router;
+

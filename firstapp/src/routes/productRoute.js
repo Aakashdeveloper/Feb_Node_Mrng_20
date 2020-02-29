@@ -37,15 +37,20 @@ var product=[
       },
 ]
 
-productRouter.route('/')
+function router(navbar){
+  productRouter.route('/')
+      .get(function(req,res){
+          //res.send(product)
+          res.render('product',{title:'Product Page',navigation:navbar})
+  });
+
+  productRouter.route('/details')
     .get(function(req,res){
-        //res.send(product)
-        res.render('product',{title:'Product Page'})
-});
+      res.send('Details of Product')
+  });
 
-productRouter.route('/details')
-.get(function(req,res){
-  res.send('Details of Product')
-});
+  return productRouter
+}
 
-module.exports = productRouter
+
+module.exports = router
