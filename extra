@@ -111,3 +111,85 @@ npm i -g nodemon
 Binding
 Manage menu
 ////
+
+////For MongoDB//////
+Inside C:\data\db
+make one folder by the name of "data" inside data make one "db" folder.
+
+Mac
+sudo mkdir /System/Volumes/Data/data/db
+
+/*****************************
+    Step to start MongoDb
+******************************/
+#Win
+> Open 2 cmd
+> Navigate where you have install MongoDB
+> C:\ProgramFile\MongoDB\4.3\bin 
+
+MongoDB Server => mongod 
+Mongo Client => mongo
+
+#Mac
+Open 2 terminal
+MongoDB Server => sudo mongod --dbpath  /System/Volumes/Data/data/db
+Mongo Client => mongo
+
+SQL
+
+sno |  english | hindi
+ 1  | 80       |
+ 2  |          |80
+
+ {
+     sno:1,
+     english:80
+ },
+ {
+     sno:2,
+     hindi:80
+ },
+ {
+     sno:2,
+     hindi:80
+     french:90 
+ }
+
+ Sql         | Mongo
+Database       Database
+Table          Collections
+row            document
+
+show dbs
+use databasename
+show collections
+
+//Select or get 
+db.products.find()
+db.products.find().pretty()
+db.products.find({productId:10,price:30}).pretty()
+db.products.find({productId:10,price:35.95}).pretty()
+
+db.products.find({selection},{projection}).pretty()
+>>>>Projection<<<<<
+db.products.find({productId:10,price:35.95},{productName:1,productCode:1}).pretty()
+db.products.find({productId:10,price:35.95},{productName:1,productCode:1,_id:0}).pretty()
+
+here 1==true
+     0==false
+
+db.products.find({productId:10,price:35.95},{_id:0}).pretty()
+db.products.find({$or:[{productId:10},{productId:5}]}).pretty()
+db.products.find({$and:[{productId:10},{productId:5}]}).pretty()
+
+
+////Insert////
+db.myprod.insert({name:"A",class:"b"})
+db.myprod.insert({_id:2,name:"B",class:"c"})
+
+//Create db///
+use databasename
+
+//Create collections//
+Insert one record
+db.myprod.insert({name:"A",class:"b"})
