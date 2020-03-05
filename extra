@@ -11,13 +11,13 @@ Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJS-Mongo-Express)
 MongoDb Basic
 Third Party Api 
------------------------------------------------
 Redis
+-----------------------------------------------
 Api with NodeJS(Rest)
-DashBoard(Crud)
-OO_NodeJs
 Login/Logout(JWT)
 Oauth(with github)
+DashBoard(Crud)
+OO_NodeJs
 GraphQl API
 ChatApp
 Email With Node
@@ -195,3 +195,7 @@ Insert one record
 db.myprod.insert({name:"A",class:"b"})
 
 
+
+npm i @babel/core @babel/preset-env @babel/register
+
+CRUD
