@@ -11,18 +11,8 @@ let col_name = "febnode";
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname+'/public'));
-app.set('views', './src/views');
-app.set('view engine', 'ejs');
-
 app.get('/',(req,res)=>{
-    db.collection(col_name).find({isactive:true}).toArray((err,result) => {
-        if(err){
-            throw err
-        }else{
-            res.render('index',{data:result})
-        }
-    })
+    res.send('health Check')
 });
 
 //Get
@@ -55,44 +45,30 @@ app.get('/user',(req,res)=> {
 
 //Post
 app.post('/addUser',(req,res) =>{
-    var data= {
-        "id": parseInt(req.body.id),
-        "name": req.body.name,
-        "city": req.body.city,
-        "phone": req.body.phone,
-        "isactive": true
-    }
-    db.collection(col_name).insert(data,(err,result) => {
+    db.collection(col_name).insert(req.body,(err,result) => {
         if(err){
             throw err
         }else{
-            res.redirect('/')
+            res.send('Data Added')
         }
     })
-});
-
-app.get('/new', (req,res) => {
-    var id = Math.floor(Math.random()*10000)
-    res.render('admin',{id:id})
 })
 
 //Update
-app.put('/updateUser',(req,res) => {
-    console.log(req.body)
+app.put('/updateuser',(req,res) => {
     db.collection(col_name)
-        .findOneAndUpdate({"id":parseInt(req.body.id)},{
+        .findOneAndUpdate({"id":req.body.id},{
             $set:{
-                "id": parseInt(req.body.id),
+                "id": req.body.id,
                 "name": req.body.name,
                 "city": req.body.city,
-                "phone":req.body.phone,
-                "isactive":true
+                "age":req.body.age
             }
         },(err,result) => {
             if(err){
                 res.status(401).send('Error in updating')
             }else{
-                res.send(result)
+                res.send("Data Updated")
             }
         })
 })
@@ -100,7 +76,7 @@ app.put('/updateUser',(req,res) => {
 //Delete
 app.delete('/deleteUser',(req,res) => {
     db.collection(col_name).findOneAndDelete({
-        "id":parseInt(req.body.id)
+        "id":req.body.id
     },(err,result) => {
         if(err){
             res.status(401).send('error in deleting')
