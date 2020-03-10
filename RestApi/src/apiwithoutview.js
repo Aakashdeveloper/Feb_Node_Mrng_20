@@ -6,7 +6,9 @@ var app = express();
 var port = 7600;
 let db;
 var mongourl = 'mongodb://127.0.0.1:27017/';
-var col_name="janUser"
+var col_name="janUser";
+var cors = reequire('cors');
+app.use(cors());
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
