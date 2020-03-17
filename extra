@@ -17,9 +17,9 @@ DashBoard(Crud)
 OO_NodeJs
 Email With Node
 NodeJs with postgres
------------------------------------------------
-Login/Logout(JWT)
 Oauth(with github)
+Login/Logout(JWT)
+-----------------------------------------------
 GraphQl API
 ChatApp
 ------
