@@ -19,8 +19,8 @@ Email With Node
 NodeJs with postgres
 Oauth(with github)
 Login/Logout(JWT)
------------------------------------------------
 GraphQl API
+-----------------------------------------------
 ChatApp
 ------
 Testing
@@ -199,3 +199,13 @@ db.myprod.insert({name:"A",class:"b"})
 npm i @babel/core @babel/preset-env @babel/register
 
 CRUD
+
+ npm i express express-graphql graphql lodash axios  cors
+
+
+ /*******
+ Dummy Api
+ *********
+ npm i -g json-Server
+
+ json-server --watch db.json --port 8900
