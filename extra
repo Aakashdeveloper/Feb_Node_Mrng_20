@@ -20,16 +20,14 @@ NodeJs with postgres
 Oauth(with github)
 Login/Logout(JWT)
 GraphQl API
------------------------------------------------
+Testing
 ChatApp
 ------
-Testing
-----
 Production
+-----------
 Nginx
 Docker
-----------
-Github
+-----------------------------------------------
 
 
 ----------------
@@ -209,3 +207,43 @@ CRUD
  npm i -g json-Server
 
  json-server --watch db.json --port 8900
+
+docker build . -t febnode
+
+
+
+    server {
+        listen       8082;
+        server_name  localhost;
+
+        location / {
+	    proxy_pass http://127.0.0.1:8900;
+	    proxy_http_version 1.1;
+    	    proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
+    }
+
+
+# HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
